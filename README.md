@@ -21,3 +21,5 @@ Be in the directory docker-jenkins
     ssn VARCHAR(30) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );`
+
+end
