@@ -1,7 +1,7 @@
 pipeline {
 agent any
 stages{
-    stage ('git scm'){
+    stage ('scm'){
  steps{
       checkout scm
  }  
@@ -43,7 +43,7 @@ stage('package'){
 }
 stage('nexus'){
     steps{
-        nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'release1.0', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/practice/target/SpringHibernateExample-1.1.war']], mavenCoordinate: [artifactId: 'SpringHibernateExample', groupId: 'com.websystique.springmvc', packaging: 'war', version: '1.1']]]
+        nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'Zettamine-SHMW-snapshot', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/zml_shmw_job_1/target/SpringHibernate-1.1.war']], mavenCoordinate: [artifactId: 'SpringHibernate', groupId: 'SpringHibernate', packaging: 'war', version: '1.0']]]
 
     }
 }
