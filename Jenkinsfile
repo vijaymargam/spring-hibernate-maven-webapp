@@ -3,7 +3,7 @@ agent any
 stages{
     stage ('git scm'){
  steps{
-      git 'https://github.com/vijaymargam/spring-hibernate-maven-webapp.git'
+      checkout scm
  }  
     }
 stage('validate'){
@@ -24,7 +24,7 @@ stage('test'){
 }
 stage('scan'){
     steps{
-    withSonarQubeEnv('krish') {
+    withSonarQubeEnv('sonar') {
          withMaven(maven: 'mvn') {
      sh 'mvn sonar:sonar'
 }
