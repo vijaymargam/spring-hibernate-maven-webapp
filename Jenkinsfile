@@ -17,7 +17,7 @@ stage('validate'){
 stage('test'){
     steps{
         withMaven(maven: 'mvn', options: [junitPublisher(healthScaleFactor: 1.0)]) {
-    sh 'mvn test'
+    sh 'mvn compile test'
 }
 
     }
